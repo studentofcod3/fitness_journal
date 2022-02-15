@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Fitness Journal</string>
+    <string name="btn_new_workout">Add New Workout</string>
+
+    <!--New Workout-->
+    <string name="exercise_name_label">Name of exercise</string>
+    <string name="exercise_set_number_label"># sets</string>
+    <string name="exercise_weight_label">Weight (kg)</string>
+    <string name="exercise_extra_notes_label">Extra notes</string>
+    <string name="btn_save_exercise">Save Workout</string>
+
+    <!--Success Page-->
+    <string name="success_main_text">Congratulations!</string>
+    <string name="success_sub_text">You just saved a workout</string>
+</resources>
