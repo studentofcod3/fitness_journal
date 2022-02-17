@@ -33,7 +33,6 @@ class WorkoutItemAdapter(
                 currentWorkoutItem.isChecked = !currentWorkoutItem.isChecked
             }
         }
-
     }
 
     override fun getItemCount(): Int {
