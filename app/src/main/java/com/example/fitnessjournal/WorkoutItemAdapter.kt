@@ -8,8 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class WorkoutItemAdapter(
-    private val workoutItemsList: MutableList<WorkoutItem>
+    public var workoutItemsList: List<WorkoutItem>,
+    private val listener: WorkoutListener,
 ) : RecyclerView.Adapter<WorkoutItemAdapter.WorkoutItemViewHolder>(){
+
+    interface WorkoutListener {
+        fun onWorkoutClicked(position: Int)
+    }
+
     class WorkoutItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val exerciseItemTitle: TextView = itemView.findViewById(R.id.tvExerciseItemTitle)
         val cbExerciseItem: CheckBox = itemView.findViewById(R.id.cbExerciseItem)
@@ -28,27 +34,16 @@ class WorkoutItemAdapter(
         val currentWorkoutItem = workoutItemsList[position]
         holder.apply{
             exerciseItemTitle.text = currentWorkoutItem.title
-            cbExerciseItem.isChecked = currentWorkoutItem.isChecked
-            cbExerciseItem.setOnCheckedChangeListener { _, b ->
-                currentWorkoutItem.isChecked = !currentWorkoutItem.isChecked
+//            cbExerciseItem.isChecked = currentWorkoutItem.isChecked
+//            cbExerciseItem.setOnCheckedChangeListener { _, b ->
+//                currentWorkoutItem.isChecked = !currentWorkoutItem.isChecked
+//            }
+            itemView.setOnClickListener{
+                listener.onWorkoutClicked(position=position)
             }
         }
     }
 
-    override fun getItemCount(): Int {
-        return workoutItemsList.size
-    }
-
-    fun addWorkoutItem(item: WorkoutItem) {
-        workoutItemsList.add(item)
-        notifyItemInserted(itemCount - 1)
-    }
-
-    // TODO: Implement functionality to use this
-    fun deleteSelectedWorkoutItems(){
-        workoutItemsList.removeAll{
-            item -> item.isChecked
-        }
-        notifyDataSetChanged()
-    }
+    override fun getItemCount(): Int =
+        workoutItemsList.size
 }
