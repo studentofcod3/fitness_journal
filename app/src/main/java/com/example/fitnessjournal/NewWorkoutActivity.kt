@@ -6,21 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitnessjournal.databinding.ActivityNewWorkoutBinding
 
 class NewWorkoutActivity : AppCompatActivity() {
-    private lateinit var workoutItemAdapter: WorkoutItemAdapter
-
-    private lateinit var title: EditText
-    private lateinit var sets: EditText
-    private lateinit var mass: EditText
-    private lateinit var extraNotes: EditText
-
+    private val binding: ActivityNewWorkoutBinding by lazy {
+        ActivityNewWorkoutBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_workout)
-
-        workoutItemAdapter = WorkoutItemAdapter(mutableListOf())
+        setContentView(binding.root)
 
         val button: Button = findViewById(R.id.btn_save_exercise)
         button.setOnClickListener {
@@ -34,29 +29,27 @@ class NewWorkoutActivity : AppCompatActivity() {
     }
 
     private fun handleNewWorkoutSubmission() {
-        val validated = true
-        if(!validated){
-            return
+//      TODO: validation
+//        val validated = true
+//        if(!validated){
+//            return
+//        }
+
+//        TODO: send this info to workout success view
+        with(binding){
+            println(exerciseName.text.toString())
+            println(exerciseSetNumber.text.toString().toInt())
+            println(exerciseWeight.text.toString().toFloat())
+            println(exerciseExtraNotes.text.toString())
         }
 
-        title = findViewById(R.id.exercise_name)
-        sets = findViewById(R.id.exercise_set_number)
-        mass = findViewById(R.id.exercise_weight)
-        extraNotes = findViewById(R.id.exercise_extra_notes)
-
-
-        val titleString: String = title.text.toString()
-        val numberSetsInt: Int = sets.text.toString().toInt()
-        val massInt: Float = mass.toString().toFloat()
-        val extraNotesString: String = extraNotes.toString()
-
-        val payload = WorkoutItem(
-            title = titleString,
-            sets = numberSetsInt,
-            mass = massInt,
-            extraNotes = extraNotesString
-        )
-        workoutItemAdapter.addWorkoutItem(payload)
+//        val payload = WorkoutItem(
+//            title = titleString,
+//            sets = numberSetsInt,
+//            mass = massInt,
+//            extraNotes = extraNotesString
+//        )
+//        addWorkoutItem(payload)
 
         redirectSuccess()
     }
@@ -64,4 +57,10 @@ class NewWorkoutActivity : AppCompatActivity() {
     private fun redirectSuccess(){
         startActivity(WorkoutSuccessActivity.createIntent(this))
     }
+
+// TODO
+//    fun addWorkoutItem(item: WorkoutItem) {
+//        workoutItemsList.add(item)
+//        notifyItemInserted(itemCount - 1)
+//    }
 }
