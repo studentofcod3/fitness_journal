@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessjournal.databinding.ActivityNewWorkoutBinding
 
@@ -24,7 +23,7 @@ class NewWorkoutActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun createIntent(ctx : Context): Intent =
+        fun createIntent(ctx: Context): Intent =
             Intent(ctx, NewWorkoutActivity::class.java)
     }
 
@@ -36,7 +35,7 @@ class NewWorkoutActivity : AppCompatActivity() {
 //        }
 
 //        TODO: send this info to workout success view
-        with(binding){
+        with(binding) {
             println(exerciseName.text.toString())
             println(exerciseSetNumber.text.toString().toInt())
             println(exerciseWeight.text.toString().toFloat())
@@ -54,7 +53,7 @@ class NewWorkoutActivity : AppCompatActivity() {
         redirectSuccess()
     }
 
-    private fun redirectSuccess(){
+    private fun redirectSuccess() {
         startActivity(WorkoutSuccessActivity.createIntent(this))
     }
 

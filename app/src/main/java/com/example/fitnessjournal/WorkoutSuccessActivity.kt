@@ -31,7 +31,7 @@ class WorkoutSuccessActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun createIntent(ctx : Context): Intent =
+        fun createIntent(ctx: Context): Intent =
             Intent(ctx, WorkoutSuccessActivity::class.java)
     }
 }

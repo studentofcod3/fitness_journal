@@ -5,14 +5,35 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.4"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
+        classpath "com.android.tools.build:gradle:7.1.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+plugins {
+    id "io.gitlab.arturbosch.detekt" version "1.19.0"
+    id "org.jmailen.kotlinter" version "3.9.0"
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+//tasks.withType(Detekt).configureEach {
+//    reports {
+//        html.required.set(true) // observe findings in your browser with structure and code snippets
+//        xml.required.set(true) // checkstyle like format mainly for integrations like Jenkins
+//        txt.required.set(true) // similar to the console output, contains issue signature to manually edit baseline files
+//        sarif.required.set(true) // standardized SARIF format (https://sarifweb.azurewebsites.net/) to support integrations with Github Code Scanning
+//    }
+//}
+//
+//tasks.withType(Detekt).configureEach {
+//    jvmTarget = "11"
+//}
+//tasks.withType(DetektCreateBaselineTask).configureEach {
+//    jvmTarget = "11"
+//}
