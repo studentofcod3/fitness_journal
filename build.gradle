@@ -1,3 +1,6 @@
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
@@ -22,18 +25,18 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-//tasks.withType(Detekt).configureEach {
-//    reports {
-//        html.required.set(true) // observe findings in your browser with structure and code snippets
-//        xml.required.set(true) // checkstyle like format mainly for integrations like Jenkins
-//        txt.required.set(true) // similar to the console output, contains issue signature to manually edit baseline files
-//        sarif.required.set(true) // standardized SARIF format (https://sarifweb.azurewebsites.net/) to support integrations with Github Code Scanning
-//    }
-//}
-//
-//tasks.withType(Detekt).configureEach {
-//    jvmTarget = "11"
-//}
-//tasks.withType(DetektCreateBaselineTask).configureEach {
-//    jvmTarget = "11"
-//}
+tasks.withType(Detekt).configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
+        sarif.required.set(false)
+    }
+}
+
+tasks.withType(Detekt).configureEach {
+    jvmTarget = "11"
+}
+tasks.withType(DetektCreateBaselineTask).configureEach {
+    jvmTarget = "11"
+}

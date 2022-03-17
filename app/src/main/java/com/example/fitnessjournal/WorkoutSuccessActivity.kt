@@ -16,13 +16,13 @@ class WorkoutSuccessActivity : AppCompatActivity() {
         setContentView(R.layout.activity_workout_success)
 
         val party = Party(
-            speed = 0f,
-            maxSpeed = 30f,
-            damping = 0.9f,
-            spread = 360,
-            colors = listOf(0xfce18a, 0xff726d, 0xf4306d, 0xb48def),
-            position = Position.Relative(0.5, 0.3),
-            emitter = Emitter(duration = 100, TimeUnit.MILLISECONDS).max(100)
+            speed = SPEED,
+            maxSpeed = MAX_SPEED,
+            damping = DAMPING,
+            spread = SPREAD,
+            colors = listOf(GREEN, RED, BLUE, PURPLE),
+            emitter = Emitter(duration = DURATION, TimeUnit.MILLISECONDS).max(DURATION.toInt()),
+            position = Position.Relative(X, Y)
         )
 
         val konfettiView: KonfettiView = findViewById(R.id.konfetti)
@@ -31,6 +31,19 @@ class WorkoutSuccessActivity : AppCompatActivity() {
     }
 
     companion object {
+        private const val SPEED = 0f
+        private const val MAX_SPEED = 30f
+        private const val DAMPING = 0.9f
+        private const val SPREAD = 360
+        private const val DURATION = 100L
+        private const val X = 0.5
+        private const val Y = 0.3
+
+        private const val GREEN = 0xfce18a
+        private const val RED = 0xff726d
+        private const val BLUE = 0xf4306d
+        private const val PURPLE = 0xb48def
+
         fun createIntent(ctx: Context): Intent =
             Intent(ctx, WorkoutSuccessActivity::class.java)
     }

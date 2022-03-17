@@ -28,13 +28,6 @@ class NewWorkoutActivity : AppCompatActivity() {
     }
 
     private fun handleNewWorkoutSubmission() {
-//      TODO: validation
-//        val validated = true
-//        if(!validated){
-//            return
-//        }
-
-//        TODO: send this info to workout success view
         with(binding) {
             println(exerciseName.text.toString())
             println(exerciseSetNumber.text.toString().toInt())
@@ -42,24 +35,10 @@ class NewWorkoutActivity : AppCompatActivity() {
             println(exerciseExtraNotes.text.toString())
         }
 
-//        val payload = WorkoutItem(
-//            title = titleString,
-//            sets = numberSetsInt,
-//            mass = massInt,
-//            extraNotes = extraNotesString
-//        )
-//        addWorkoutItem(payload)
-
         redirectSuccess()
     }
 
     private fun redirectSuccess() {
         startActivity(WorkoutSuccessActivity.createIntent(this))
     }
-
-// TODO
-//    fun addWorkoutItem(item: WorkoutItem) {
-//        workoutItemsList.add(item)
-//        notifyItemInserted(itemCount - 1)
-//    }
 }
