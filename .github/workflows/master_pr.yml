@@ -1,0 +1,37 @@
+name: Fitness Journal
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Lint
+        run: ./gradlew lintDebug
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test
+        run: ./gradlew testDebugUnitTest
+
+  assemble:
+    name: "Build APK"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Assemble
+        run: ./gradlew assembleDebug
