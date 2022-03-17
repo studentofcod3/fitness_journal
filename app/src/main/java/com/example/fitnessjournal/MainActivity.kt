@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadedData(list: List<WorkoutItem>) {
         adapter.workoutItemsList = list
-        adapter.notifyDataSetChanged()
+        adapter.notifyItemRangeInserted(0, list.size)
     }
 
 //   TODO

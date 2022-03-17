@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         />
     <EditText
         android:id="@+id/exercise_name"
@@ -23,6 +23,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="@id/exercise_name_label"
         android:inputType="text"
+        android:autofillHints="notApplicable"
         />
 
     <TextView
@@ -34,6 +35,7 @@
         app:layout_constraintStart_toStartOf="@id/exercise_name"
         app:layout_constraintTop_toBottomOf="@id/exercise_name"
         android:layout_marginTop="50dp"
+        android:autofillHints="notApplicable"
         />
     <EditText
         android:id="@+id/exercise_set_number"
@@ -42,6 +44,7 @@
         app:layout_constraintTop_toTopOf="@id/exercise_set_number_label"
         app:layout_constraintStart_toEndOf="@id/exercise_set_number_label"
         android:inputType="number"
+        android:autofillHints="notApplicable"
         />
 
     <TextView
@@ -53,7 +56,7 @@
         app:layout_constraintStart_toEndOf="@id/exercise_set_number"
         app:layout_constraintTop_toBottomOf="@id/exercise_name"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         />
     <EditText
         android:id="@+id/exercise_weight"
@@ -62,6 +65,7 @@
         app:layout_constraintTop_toTopOf="@id/exercise_weight_label"
         app:layout_constraintStart_toEndOf="@id/exercise_weight_label"
         android:inputType="number"
+        android:autofillHints="notApplicable"
         />
 
     <TextView
@@ -81,6 +85,7 @@
         app:layout_constraintTop_toBottomOf="@id/exercise_extra_notes_label"
         app:layout_constraintStart_toStartOf="@id/exercise_extra_notes_label"
         android:inputType="textMultiLine"
+        android:autofillHints="notApplicable"
         />
 
     <Button
