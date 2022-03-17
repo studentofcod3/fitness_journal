@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class WorkoutItemAdapter(
     public var workoutItemsList: List<WorkoutItem>,
     private val listener: WorkoutListener,
-) : RecyclerView.Adapter<WorkoutItemAdapter.WorkoutItemViewHolder>(){
+) : RecyclerView.Adapter<WorkoutItemAdapter.WorkoutItemViewHolder>() {
 
     interface WorkoutListener {
         fun onWorkoutClicked(position: Int)
@@ -30,16 +30,19 @@ class WorkoutItemAdapter(
         return WorkoutItemViewHolder(workoutItemView)
     }
 
-    override fun onBindViewHolder(holder: WorkoutItemViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: WorkoutItemViewHolder,
+        position: Int
+    ) {
         val currentWorkoutItem = workoutItemsList[position]
-        holder.apply{
+        holder.apply {
             exerciseItemTitle.text = currentWorkoutItem.title
 //            cbExerciseItem.isChecked = currentWorkoutItem.isChecked
 //            cbExerciseItem.setOnCheckedChangeListener { _, b ->
 //                currentWorkoutItem.isChecked = !currentWorkoutItem.isChecked
 //            }
-            itemView.setOnClickListener{
-                listener.onWorkoutClicked(position=position)
+            itemView.setOnClickListener {
+                listener.onWorkoutClicked(position = position)
             }
         }
     }

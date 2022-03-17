@@ -1,8 +1,8 @@
 package com.example.fitnessjournal
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessjournal.databinding.ActivityMainBinding
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             }
         )
         with(binding) {
-            rvWorkouts.apply{
+            rvWorkouts.apply {
                 adapter = this@MainActivity.adapter
                 layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
             }
@@ -69,9 +69,9 @@ class MainActivity : AppCompatActivity() {
         loadedData(workouts)
     }
 
-    private fun loadedData(list: List<WorkoutItem>){
+    private fun loadedData(list: List<WorkoutItem>) {
         adapter.workoutItemsList = list
-        adapter.notifyDataSetChanged()
+        adapter.notifyItemRangeInserted(0, list.size)
     }
 
 //   TODO

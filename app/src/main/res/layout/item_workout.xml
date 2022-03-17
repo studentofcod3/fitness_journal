@@ -10,7 +10,7 @@
         android:id="@+id/tvExerciseItemTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Some text here"
+        android:text="@string/item_workout_placeholder_text"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cbExerciseItem"
