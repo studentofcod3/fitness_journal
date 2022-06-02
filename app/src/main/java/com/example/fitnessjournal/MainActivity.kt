@@ -62,11 +62,15 @@ class MainActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
             }
             btnAddWorkout.setOnClickListener {
-                startActivity(NewWorkoutActivity.createIntent(this@MainActivity))
+                startNewWorkoutActivity()
             }
         }
 
         loadedData(workouts)
+    }
+
+    fun startNewWorkoutActivity(){
+        startActivity(NewWorkoutActivity.createIntent(this@MainActivity))
     }
 
     private fun loadedData(list: List<WorkoutItem>) {
