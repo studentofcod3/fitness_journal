@@ -11,10 +11,10 @@ import nl.dionsegijn.konfetti.core.emitter.Emitter
 import nl.dionsegijn.konfetti.xml.KonfettiView
 import java.util.concurrent.TimeUnit
 
-class WorkoutSuccessActivity : AppCompatActivity() {
+class ExerciseSuccessActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_workout_success)
+        setContentView(R.layout.activity_exercise_success)
 
         val party = Party(
             speed = SPEED,
@@ -46,6 +46,6 @@ class WorkoutSuccessActivity : AppCompatActivity() {
         private const val PURPLE = 0xb48def
 
         fun createIntent(ctx: Context): Intent =
-            Intent(ctx, WorkoutSuccessActivity::class.java)
+            Intent(ctx, ExerciseSuccessActivity::class.java)
     }
 }

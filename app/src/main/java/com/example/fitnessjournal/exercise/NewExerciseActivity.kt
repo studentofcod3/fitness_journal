@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessjournal.R
-import com.example.fitnessjournal.databinding.ActivityNewWorkoutBinding
+import com.example.fitnessjournal.databinding.ActivityNewExerciseBinding
 
-class NewWorkoutActivity : AppCompatActivity() {
-    private val binding: ActivityNewWorkoutBinding by lazy {
-        ActivityNewWorkoutBinding.inflate(layoutInflater)
+class NewExerciseActivity : AppCompatActivity() {
+    private val binding: ActivityNewExerciseBinding by lazy {
+        ActivityNewExerciseBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,16 +19,16 @@ class NewWorkoutActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.btn_save_exercise)
         button.setOnClickListener {
-            handleNewWorkoutSubmission()
+            handleNewExerciseSubmission()
         }
     }
 
     companion object {
         fun createIntent(ctx: Context): Intent =
-            Intent(ctx, NewWorkoutActivity::class.java)
+            Intent(ctx, NewExerciseActivity::class.java)
     }
 
-    private fun handleNewWorkoutSubmission() {
+    private fun handleNewExerciseSubmission() {
         with(binding) {
             println(exerciseName.text.toString())
             println(exerciseSetNumber.text.toString().toInt())
@@ -40,6 +40,6 @@ class NewWorkoutActivity : AppCompatActivity() {
     }
 
     private fun redirectSuccess() {
-        startActivity(WorkoutSuccessActivity.createIntent(this))
+        startActivity(ExerciseSuccessActivity.createIntent(this))
     }
 }
