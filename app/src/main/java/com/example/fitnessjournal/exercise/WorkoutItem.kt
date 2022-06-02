@@ -1,4 +1,4 @@
-package com.example.fitnessjournal
+package com.example.fitnessjournal.exercise
 
 data class WorkoutItem(
     val title: String,

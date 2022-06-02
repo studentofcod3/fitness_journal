@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessjournal.databinding.ActivityMainBinding
+import com.example.fitnessjournal.exercise.NewWorkoutActivity
+import com.example.fitnessjournal.exercise.WorkoutItem
+import com.example.fitnessjournal.exercise.WorkoutItemAdapter
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
