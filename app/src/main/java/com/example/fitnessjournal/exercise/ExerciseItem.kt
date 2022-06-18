@@ -1,6 +1,6 @@
-package com.example.fitnessjournal
+package com.example.fitnessjournal.exercise
 
-data class WorkoutItem(
+data class ExerciseItem(
     val title: String,
     val sets: Int,
     val mass: Float,

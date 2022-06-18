@@ -2,19 +2,19 @@
     <string name="app_name">Fitness Journal</string>
 
     <!--  Image descriptions  -->
-    <string name="floating_btn_description">Add workout</string>
+    <string name="floating_btn_description">Add exercise</string>
 
-    <!--New Workout-->
+    <!--New Exercise-->
     <string name="exercise_name_label">Name of exercise</string>
     <string name="exercise_set_number_label"># sets</string>
     <string name="exercise_weight_label">Weight (kg)</string>
     <string name="exercise_extra_notes_label">Extra notes</string>
-    <string name="btn_save_exercise">Save Workout</string>
+    <string name="btn_save_exercise">Save Exercise</string>
 
     <!--Success Page-->
     <string name="success_main_text">Congratulations!</string>
-    <string name="success_sub_text">You just saved a workout</string>
+    <string name="success_sub_text">You just saved a exercise</string>
 
-    <!--    Item Workout -->
-    <string name="item_workout_placeholder_text">Some text here</string>
+    <!--    Item Exercise -->
+    <string name="item_exercise_placeholder_text">Some text here</string>
 </resources>

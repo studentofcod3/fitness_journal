@@ -1,19 +1,20 @@
-package com.example.fitnessjournal
+package com.example.fitnessjournal.exercise
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitnessjournal.R
 import nl.dionsegijn.konfetti.core.Party
 import nl.dionsegijn.konfetti.core.Position
 import nl.dionsegijn.konfetti.core.emitter.Emitter
 import nl.dionsegijn.konfetti.xml.KonfettiView
 import java.util.concurrent.TimeUnit
 
-class WorkoutSuccessActivity : AppCompatActivity() {
+class ExerciseSuccessActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_workout_success)
+        setContentView(R.layout.activity_exercise_success)
 
         val party = Party(
             speed = SPEED,
@@ -45,6 +46,6 @@ class WorkoutSuccessActivity : AppCompatActivity() {
         private const val PURPLE = 0xb48def
 
         fun createIntent(ctx: Context): Intent =
-            Intent(ctx, WorkoutSuccessActivity::class.java)
+            Intent(ctx, ExerciseSuccessActivity::class.java)
     }
 }

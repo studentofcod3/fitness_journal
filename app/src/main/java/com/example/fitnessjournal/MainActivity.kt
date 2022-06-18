@@ -6,34 +6,37 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessjournal.databinding.ActivityMainBinding
+import com.example.fitnessjournal.exercise.NewExerciseActivity
+import com.example.fitnessjournal.exercise.ExerciseItem
+import com.example.fitnessjournal.exercise.ExerciseItemAdapter
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private lateinit var adapter: WorkoutItemAdapter
+    private lateinit var adapter: ExerciseItemAdapter
 
-    private val workouts = listOf(
-        WorkoutItem(
+    private val exercises = listOf(
+        ExerciseItem(
             title = "Crunches",
             sets = 5,
             mass = 4f,
             extraNotes = "nothing special"
         ),
-        WorkoutItem(
+        ExerciseItem(
             title = "Bench Press",
             sets = 5,
             mass = 4f,
             extraNotes = "nothing special"
         ),
-        WorkoutItem(
+        ExerciseItem(
             title = "lat pull downs",
             sets = 5,
             mass = 4f,
             extraNotes = "nothing special"
         ),
-        WorkoutItem(
+        ExerciseItem(
             title = "shoulder press",
             sets = 5,
             mass = 4f,
@@ -45,38 +48,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        adapter = WorkoutItemAdapter(
-            workoutItemsList = emptyList(),
-            listener = object : WorkoutItemAdapter.WorkoutListener {
-                override fun onWorkoutClicked(position: Int) {
+        adapter = ExerciseItemAdapter(
+            exerciseItemsList = emptyList(),
+            listener = object : ExerciseItemAdapter.ExerciseListener {
+                override fun onExerciseClicked(position: Int) {
                     Toast
-                        .makeText(this@MainActivity, "item ${workouts[position].title} was clicked", Toast.LENGTH_SHORT)
+                        .makeText(this@MainActivity, "item ${exercises[position].title} was clicked", Toast.LENGTH_SHORT)
                         .show()
 //                    TODO open detail activity for item $position
                 }
             }
         )
         with(binding) {
-            rvWorkouts.apply {
+            rvExercises.apply {
                 adapter = this@MainActivity.adapter
                 layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
             }
-            btnAddWorkout.setOnClickListener {
-                startActivity(NewWorkoutActivity.createIntent(this@MainActivity))
+            btnAddExercise.setOnClickListener {
+                startActivity(NewExerciseActivity.createIntent(this@MainActivity))
             }
         }
 
-        loadedData(workouts)
+        loadedData(exercises)
     }
 
-    private fun loadedData(list: List<WorkoutItem>) {
-        adapter.workoutItemsList = list
+    private fun loadedData(list: List<ExerciseItem>) {
+        adapter.exerciseItemsList = list
         adapter.notifyItemRangeInserted(0, list.size)
     }
 
 //   TODO
-//    fun deleteSelectedWorkoutItems(){
-//        workoutItemsList.removeAll{
+//    fun deleteSelectedExerciseItems(){
+//        exerciseItemsList.removeAll{
 //            item -> item.isChecked
 //        }
 //        notifyDataSetChanged()
